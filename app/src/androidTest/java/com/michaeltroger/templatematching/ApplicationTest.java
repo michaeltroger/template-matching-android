@@ -1,4 +1,4 @@
-package be.pxl.troger.logorecognition;
+package com.michaeltroger.templatematching;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

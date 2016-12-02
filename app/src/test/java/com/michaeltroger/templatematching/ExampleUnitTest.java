@@ -1,4 +1,4 @@
-package be.pxl.troger.logorecognition;
+package com.michaeltroger.templatematching;
 
 import org.junit.Test;
 
