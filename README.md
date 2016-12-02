@@ -9,15 +9,15 @@
 * Dependencies: OpenCV 3.0.0 library (included)
 * Template image location: res/drawable - Image is referenced in MainActivity
 
-### Who do I talk to? ###
-* Repo owner and developer: android@michaeltroger.com
-
 ### Test image ###
 Used default template image:
 
 <img src="/app/src/main/res/drawable/pxl.bmp" alt=""/>
 
 Test with filming the logo at the top left at http://www.pxl.be/
+
+### Who do I talk to? ###
+* Repo owner and developer: android@michaeltroger.com
 
 ### Credits ###
 * The template matching is based on the official OpenCV tutorial http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/template_matching/template_matching.html Their version is using OpenCV 2 with normal images.
