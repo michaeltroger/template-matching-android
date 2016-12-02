@@ -13,7 +13,7 @@
 * Repo owner and developer: android@michaeltroger.com
 
 ### Test image ###
-Used template image:
+Used default template image:
 
 <img src="/app/src/main/res/drawable/pxl.bmp" alt=""/>
 
