@@ -13,7 +13,11 @@
 * Repo owner and developer: android@michaeltroger.com
 
 ### Test image ###
-The logo at the top left at http://www.pxl.be/
+Used template image:
+
+<img src="/app/src/main/res/drawable/pxl.bmp" alt="" width="200px"/>
+
+Test with filming the logo at the top left at http://www.pxl.be/
 
 ### Credits ###
 * The template matching is based on the official OpenCV tutorial http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/template_matching/template_matching.html Their version is using OpenCV 2 with normal images.
