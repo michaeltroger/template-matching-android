@@ -24,8 +24,6 @@ import android.view.WindowManager;
 
 import java.io.IOException;
 
-import be.pxl.troger.logorecognition.R;
-
 /**
  * template matching example
  */
@@ -98,7 +96,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                     templ = new Mat();
                     Imgproc.cvtColor(bgr, templ, Imgproc.COLOR_BGR2GRAY);//Imgproc.COLOR_BGR2RGBA);
 
-
                     // Imgproc.Canny(templ, templ, 50.0, 200.0);
 
                     // init the crop rectangle, necessary for copying the image to the camera view
@@ -107,7 +104,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                     // init the result matrix
                     result = new Mat();
                     img = new Mat();
-
 
                     mOpenCvCameraView.enableView();
                 } break;
@@ -171,17 +167,13 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             mOpenCvCameraView.disableView();
     }
 
-    public void onCameraViewStarted(int width, int height) {
-    }
+    public void onCameraViewStarted(int width, int height) {}
 
-    public void onCameraViewStopped() {
-    }
+    public void onCameraViewStopped() {}
 
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-
         img = inputFrame.gray();
-
 
         // copying the image into the camera preview
         // selectedArea = img.submat(rect);
@@ -193,7 +185,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         /// Source image to display
         Mat img_display = new Mat();
         img.copyTo( img_display );
-
 
         /// Create the result matrix
         int result_cols =  img.cols() - templ.cols() + 1;

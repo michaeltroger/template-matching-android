@@ -1,8 +1,11 @@
 # Augmented Reality Template Matching for >= Android 4 #
 
+<img src="/templatematching.png" alt="Augmented Reality template matching" width="400px"/>
+
 ### What is this repository for? ###
 * Takes the real time camera picture and uses it for finding a specified template image using a template matching approach with OpenCV for Android (Java library). Lines are drawn on top of the camera image where the searched object is expected. This can for example be used to find a logo. 
 * Be aware that template matching doesn't allow any rotations or zooming of the camera. Hold the camera without dip and at the 1:1 correct zoom. Otherwise the template image won't be found within the camera image.
+* This app is using a gray scale live image for performance reason. This could easily be changed to search in color live images too.
 
 ### How do I get set up? ###
 * IDE: Android Studio (tested with 2.1.2)
