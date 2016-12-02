@@ -15,7 +15,7 @@
 ### Test image ###
 Used template image:
 
-<img src="/app/src/main/res/drawable/pxl.bmp" alt="" width="200px"/>
+<img src="/app/src/main/res/drawable/pxl.bmp" alt=""/>
 
 Test with filming the logo at the top left at http://www.pxl.be/
 
