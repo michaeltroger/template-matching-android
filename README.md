@@ -2,6 +2,7 @@
 
 ### What is this repository for? ###
 * Takes the real time camera picture and uses it for finding a specified template image using a template matching approach with OpenCV for Android (Java library). Lines are drawn on top of the camera image where the searched object is expected. This can for example be used to find a logo. 
+* Be aware that template matching doesn't allow rotations or scaling of the camera. Otherwise the image won't be found.
 
 ### How do I get set up? ###
 * IDE: Android Studio (tested with 2.1.2)
