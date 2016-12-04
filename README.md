@@ -12,6 +12,7 @@
 * Android SDK
 * Dependencies: OpenCV 3.0.0 library (included)
 * Template image location: res/drawable - Image is referenced in MainActivity
+* Make sure the app has the required permission on start, as there is no runtime-check yet! (Camera)
 
 ### Test image ###
 Used default template image:
