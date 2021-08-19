@@ -1,4 +1,6 @@
 # Augmented Reality Template Matching for >= Android 4 #
+Attention: This app was created in 2016. I was a beginner to Android development and Computer Vision back then.
+So don't expect a perfect code please. In 2021 I updated the project to build with the latest Android Studio (2020.3.1), updated most dependencies and converted it to Kotlin, while the business logic remained unchanged.
 
 <img src="/templatematching.png" alt="Augmented Reality template matching" width="400px"/>
 
@@ -8,11 +10,10 @@
 * This app is using a gray scale live image for performance reason. This could easily be changed to search in color live images too.
 
 ### How do I get set up? ###
-* IDE: Android Studio (tested with 2.1.2)
+* IDE: Android Studio  (tested with 2020.3.1)
 * Android SDK
-* Dependencies: OpenCV 3.0.0 library (included)
+* Dependencies: OpenCV 3 library (included) [License](/opencv-3-4-15/LICENSE)
 * Template image location: res/drawable - Image is referenced in MainActivity
-* Make sure the app has the required permission on start, as there is no runtime-check yet! (Camera)
 
 ### Test image ###
 Used default template image:
