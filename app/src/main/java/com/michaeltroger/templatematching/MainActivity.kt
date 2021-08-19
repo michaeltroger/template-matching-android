@@ -1,6 +1,7 @@
 package com.michaeltroger.templatematching
 
-import android.app.Activity
+import android.Manifest
+import android.content.pm.PackageManager
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
@@ -9,6 +10,9 @@ import android.util.Log
 import android.view.WindowManager
 import android.view.SurfaceView
 import android.view.View
+import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import org.opencv.android.*
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame
 import org.opencv.core.*
@@ -17,7 +21,7 @@ import java.io.IOException
 /**
  * template matching example
  */
-class MainActivity : Activity(), CvCameraViewListener2 {
+class MainActivity : ComponentActivity(), CvCameraViewListener2 {
     /**
      * the camera view
      */
@@ -87,6 +91,34 @@ class MainActivity : Activity(), CvCameraViewListener2 {
         }
     }
 
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                onPermissionGranted()
+            } else {
+                checkPermissonAndInitialize()
+            }
+        }
+
+    private fun checkPermissonAndInitialize() {
+        if (ContextCompat.checkSelfPermission(baseContext, Manifest.permission.CAMERA)
+            == PackageManager.PERMISSION_GRANTED) {
+            onPermissionGranted()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.CAMERA)
+        }
+    }
+
+    fun onPermissionGranted() {
+        if (FIXED_FRAME_SIZE) {
+            mOpenCvCameraView!!.setMaxFrameSize(FRAME_SIZE_WIDTH, FRAME_SIZE_HEIGHT)
+        }
+        mOpenCvCameraView!!.visibility = SurfaceView.VISIBLE
+        mOpenCvCameraView!!.setCvCameraViewListener(this)
+    }
+
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(TAG, "called onCreate")
@@ -96,11 +128,7 @@ class MainActivity : Activity(), CvCameraViewListener2 {
         mOpenCvCameraView =
             findViewById<View>(R.id.tutorial1_activity_java_surface_view) as CameraBridgeViewBase
 
-        if (FIXED_FRAME_SIZE) {
-            mOpenCvCameraView!!.setMaxFrameSize(FRAME_SIZE_WIDTH, FRAME_SIZE_HEIGHT)
-        }
-        mOpenCvCameraView!!.visibility = SurfaceView.VISIBLE
-        mOpenCvCameraView!!.setCvCameraViewListener(this)
+        checkPermissonAndInitialize()
     }
 
     public override fun onPause() {
