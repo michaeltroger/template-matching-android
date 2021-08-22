@@ -208,7 +208,7 @@ class MainActivity : ComponentActivity(), CvCameraViewListener2 {
         /**
          * the template image to use
          */
-        private const val TEMPLATE_IMAGE = R.drawable.pxl
+        private const val TEMPLATE_IMAGE = R.drawable.logo
 
         /**
          * frame size width

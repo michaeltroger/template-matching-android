@@ -18,7 +18,7 @@ So don't expect a perfect code please. In 2021 I updated the project to build wi
 ### Test image ###
 Used default template image:
 
-<img src="/app/src/main/res/drawable/pxl.bmp" alt=""/>
+<img src="/app/src/main/res/drawable/logo.png" alt=""/>
 
 Test with filming the logo at the top left at http://www.pxl.be/
 
