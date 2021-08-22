@@ -22,6 +22,7 @@ Used default template image:
 <img src="/app/src/main/res/drawable/logo.png" alt=""/>
 Copyright of the logo: Hogeschool PXL
 
+
 Test with filming the logo at the top left at http://www.pxl.be/
 
 ### Who do I talk to? ###
