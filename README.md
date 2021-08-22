@@ -2,7 +2,8 @@
 Attention: This app was created in 2016. I was a beginner to Android development and Computer Vision back then.
 So don't expect a perfect code please. In 2021 I updated the project to build with the latest Android Studio (2020.3.1), updated most dependencies and converted it to Kotlin, while the business logic remained unchanged.
 
-<img src="/templatematching.png" alt="Augmented Reality template matching" width="400px"/>
+<img src="/screenshots/demo.gif" alt="Augmented Reality template matching" width="800px"/>
+Copyright of the logo: Hogeschool PXL
 
 ### What is this repository for? ###
 * Takes the real time camera picture and uses it for finding a specified template image using a template matching approach with OpenCV for Android (Java library). Lines are drawn on top of the camera image where the searched object is expected. This can for example be used to find a logo. 
@@ -19,6 +20,7 @@ So don't expect a perfect code please. In 2021 I updated the project to build wi
 Used default template image:
 
 <img src="/app/src/main/res/drawable/logo.png" alt=""/>
+Copyright of the logo: Hogeschool PXL
 
 Test with filming the logo at the top left at http://www.pxl.be/
 
