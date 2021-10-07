@@ -28,5 +28,8 @@ Copyright of the logo: Hogeschool PXL
 
 Test with filming the logo at the top left at http://www.pxl.be/
 
+### Author ###
+[Michael Troger](https://michaeltroger.com)
+
 ### Credits ###
 * The template matching is based on the official OpenCV tutorial http://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/template_matching/template_matching.html Their version is using OpenCV 2 with static images files.
