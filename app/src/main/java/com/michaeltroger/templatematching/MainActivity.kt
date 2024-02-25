@@ -30,66 +30,28 @@ class MainActivity : ComponentActivity(), CvCameraViewListener2 {
     /**
      * the result matrix
      */
-    var result: Mat? = null
+    private var result: Mat? = null
 
     /**
      * the camera image
      */
-    var img: Mat? = null
+    private var img: Mat? = null
 
     /**
      * the template image used for template matching
      * or for copying into the camera view
      */
-    var templ: Mat? = null
+    private var templ: Mat? = null
 
     /**
      * the crop rectangle with the size of the template image
      */
-    var rect: Rect? = null
+    private var rect: Rect? = null
 
     /**
      * selected area is the camera preview cut to the crop rectangle
      */
     var selectedArea: Mat? = null
-    private val mLoaderCallback: BaseLoaderCallback = object : BaseLoaderCallback(this) {
-        override fun onManagerConnected(status: Int) {
-            when (status) {
-                SUCCESS -> {
-                    Log.i(TAG, "OpenCV loaded successfully")
-
-                    // load the specified image from file system in bgr color
-                    var bgr: Mat? = null
-                    try {
-                        bgr = Utils.loadResource(
-                            applicationContext,
-                            TEMPLATE_IMAGE,
-                            Imgcodecs.CV_LOAD_IMAGE_COLOR
-                        )
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    }
-
-                    // convert the image to rgba
-                    templ = Mat()
-                    Imgproc.cvtColor(bgr, templ, Imgproc.COLOR_BGR2GRAY) //Imgproc.COLOR_BGR2RGBA);
-
-                    // Imgproc.Canny(templ, templ, 50.0, 200.0);
-
-                    // init the crop rectangle, necessary for copying the image to the camera view
-                    rect = Rect(0, 0, templ!!.width(), templ!!.height())
-
-                    // init the result matrix
-                    result = Mat()
-                    img = Mat()
-                    mOpenCvCameraView!!.enableView()
-                }
-                else -> {
-                    super.onManagerConnected(status)
-                }
-            }
-        }
-    }
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -111,12 +73,13 @@ class MainActivity : ComponentActivity(), CvCameraViewListener2 {
         }
     }
 
-    fun onPermissionGranted() {
+    private fun onPermissionGranted() {
         if (FIXED_FRAME_SIZE) {
             mOpenCvCameraView!!.setMaxFrameSize(FRAME_SIZE_WIDTH, FRAME_SIZE_HEIGHT)
         }
         mOpenCvCameraView!!.visibility = SurfaceView.VISIBLE
         mOpenCvCameraView!!.setCvCameraViewListener(this)
+        mOpenCvCameraView!!.setCameraPermissionGranted()
     }
 
     /** Called when the activity is first created.  */
@@ -138,13 +101,35 @@ class MainActivity : ComponentActivity(), CvCameraViewListener2 {
 
     public override fun onResume() {
         super.onResume()
-        if (!OpenCVLoader.initDebug()) {
-            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization")
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback)
-        } else {
-            Log.d(TAG, "OpenCV library found inside package. Using it!")
-            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS)
+        OpenCVLoader.initLocal()
+
+        Log.i(TAG, "OpenCV loaded successfully")
+
+        // load the specified image from file system in bgr color
+        var bgr: Mat? = null
+        try {
+            bgr = Utils.loadResource(
+                applicationContext,
+                TEMPLATE_IMAGE,
+                Imgcodecs.IMREAD_COLOR
+            )
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
+
+        // convert the image to rgba
+        templ = Mat()
+        Imgproc.cvtColor(bgr, templ, Imgproc.COLOR_BGR2GRAY) //Imgproc.COLOR_BGR2RGBA);
+
+        // Imgproc.Canny(templ, templ, 50.0, 200.0);
+
+        // init the crop rectangle, necessary for copying the image to the camera view
+        rect = Rect(0, 0, templ!!.width(), templ!!.height())
+
+        // init the result matrix
+        result = Mat()
+        img = Mat()
+        mOpenCvCameraView!!.enableView()
     }
 
     public override fun onDestroy() {
@@ -208,7 +193,7 @@ class MainActivity : ComponentActivity(), CvCameraViewListener2 {
         /**
          * the template image to use
          */
-        private const val TEMPLATE_IMAGE = R.drawable.logo
+        private val TEMPLATE_IMAGE = R.drawable.logo
 
         /**
          * frame size width
