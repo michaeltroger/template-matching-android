@@ -2,8 +2,9 @@
 ## Approach: Sum of squared differences (SSD)
 [![Android CI](https://github.com/michaeltroger/template-matching-android/actions/workflows/android.yml/badge.svg)](https://github.com/michaeltroger/template-matching-android/actions/workflows/android.yml)
 
-Attention: This app was created in 2016. I was a beginner to Android development and Computer Vision back then.
-So don't expect a perfect code please. In 2021 I updated the project to build with the latest Android Studio (2020.3.1), updated most dependencies and converted it to Kotlin, while the business logic remained unchanged.
+Attention: This app was created in 2016. I was a beginner to Android development and Computer Vision back then. So don't expect a perfect code please. Over the years I updated the dependencies and converted it to Kotlin, while the business logic remained unchanged.
+
+Note: Originally I targeted min SDK 15 (Android 4), more architectures ("mips", "mips64", "armeabi") and OpenCV 3 with this project. Nowadays the repo uses newer versions. If you need to support older devices, then you can look back in the repo's Git history (app version 1.3 / Git tag 4)
 
 <img src="/screenshots/demo.gif" alt="Augmented Reality template matching" width="800px"/>
 Copyright of the logo: Hogeschool PXL
@@ -15,9 +16,8 @@ Copyright of the logo: Hogeschool PXL
 * More computer vision projects at https://michaeltroger.com/computervision/
 
 ### How do I get set up? ###
-* IDE: Android Studio  (tested with 2020.3.1)
+* IDE: Android Studio  (tested with 2023.3.1)
 * Android SDK
-* Dependencies: OpenCV 3 library (included) [License](/opencv-3-4-15/LICENSE)
 * Template image location: res/drawable - Image is referenced in MainActivity
 
 ### Test image ###
