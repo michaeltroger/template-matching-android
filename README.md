@@ -1,4 +1,4 @@
-# Augmented Reality Template Matching for >= Android 4 #
+# Augmented Reality Template Matching using OpenCV 4 for Android 
 ## Approach: Sum of squared differences (SSD)
 [![Android CI](https://github.com/michaeltroger/template-matching-android/actions/workflows/android.yml/badge.svg)](https://github.com/michaeltroger/template-matching-android/actions/workflows/android.yml)
 
