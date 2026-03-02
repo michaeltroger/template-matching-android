@@ -16,7 +16,7 @@ Copyright of the logo: Hogeschool PXL
 * More computer vision projects at https://michaeltroger.com/computervision/
 
 ### How do I get set up? ###
-* IDE: Android Studio  (tested with 2023.3.1)
+* IDE: Android Studio
 * Android SDK
 * Template image location: res/drawable - Image is referenced in MainActivity
 
